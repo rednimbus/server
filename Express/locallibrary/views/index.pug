@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p 欢迎来到 #[em 本地图书馆]
+
+  h1 详细内容
+
+  if error
+    p 错误信息
+  else
+    p 图书馆信息如下:
+
+    ul
+      li #[strong 书籍:] !{data.book_count}
+      li #[strong 品类:] !{data.book_instance_count}
+      li #[strong 可借:] !{data.book_instance_available_count} 
+      li #[strong 作者:] !{data.author_count}
+      li #[strong 书籍种类:] !{data.genre_count}
