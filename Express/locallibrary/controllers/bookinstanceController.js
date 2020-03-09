@@ -10,3 +10,9 @@ exports.bookinstance_list = (req, res) => {
       res.render('bookinstance_list', { title: 'Book Instance List', bookinstance_list: list_bookinstances });
     });
 };
+
+exports.bookinstance_detail = (req, res, next) => {
+    BookInstance.findById(req.params.id).populate('book').then(data => {
+      res.render('bookinstance_detail', {bookinstance: data});
+    }).catch(err => next());
+}

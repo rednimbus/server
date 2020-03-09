@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+  h1 作者: #{author.name}
+  if !author.date_of_birth_format&&!author.date_of_death_format
+    p 生卒不详
+  else
+    p #{author.date_of_birth_format || '不详'}至#{author.date_of_death_format || '今'}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 作品
+    
+    dl
+      each book in author_books
+        dt 
+          a(href=book.url) #{book.title}
+        dd #{book.summary}
+
+      else
+        p 该作者暂无作品

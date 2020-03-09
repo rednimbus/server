@@ -5,6 +5,7 @@ const BookInstance = require('../models/bookinstance');
 
 const async = require('async');
 
+// 首页
 exports.index = function(req, res) {
     async.parallel({
         book_count: function(callback) {
@@ -27,7 +28,6 @@ exports.index = function(req, res) {
     });
 };
 
-
 // 显示完整的书籍列表
 exports.book_list = (req, res, next) => {
     Book.find({}, 'title author')
@@ -39,3 +39,15 @@ exports.book_list = (req, res, next) => {
     });
 };
 
+// 书籍详情
+exports.book_detail = (req, res, next) => {
+    const baseRes = {title: '书名'};
+    Promise.all([
+        Book.findById(req.params.id).populate('author').populate('genre'),
+        BookInstance.find({book: req.params.id})
+    ]).then(datas => {
+        baseRes.book = datas[0];
+        baseRes.book_instances = datas[1];
+        res.render('book_detail', baseRes);
+    }).catch(err => next());
+};
