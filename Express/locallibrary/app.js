@@ -12,7 +12,7 @@ var catalogRouter = require('./routes/catalog');
 var app = express();
 
 // connect mongodb
-const mongoDB = 'mongodb://127.0.0.1:27017/admin?gssapiServiceName=mongodb';
+const mongoDB = 'mongodb://shell:xiang@118.25.45.11:27017/dev?gssapiServiceName=mongodb';
 console.log(mongoDB)
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
