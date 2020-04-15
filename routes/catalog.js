@@ -32,6 +32,8 @@ router.get('/bookinstances', book_instance_controller.bookinstance_list);
 
 // GET 作者信息
 router.get('/author/:id', author_controller.author_detail);
+// GET 新增作者
+router.get('/author/create', author_controller.author_create);
 
 // GET 作者列表
 router.get('/author', (req, res) => res.redirect('./authors'));
