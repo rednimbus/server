@@ -13,6 +13,7 @@ var app = express();
 
 // connect mongodb
 const mongoDB = 'mongodb://shell:xiang@127.0.0.1:27017/dev?gssapiServiceName=mongodb';
+// const mongoDB = 'mongodb://127.0.0.1:27017/?gssapiServiceName=mongodb';
 console.log(mongoDB)
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,

@@ -2,7 +2,7 @@ var app = require('./app');
 var debug = require('debug')('locallibrary:server');
 var http = require('http');
 
-var port = 80;
+var port = 3000;
 app.set('port', port);
 
 var server = http.createServer(app);
