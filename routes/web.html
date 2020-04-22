@@ -10,8 +10,9 @@
 </head>
 
 <body>
+    <div id="app"></div>
     <script>
-        alert(JSON.stringify(my))
+        document.getElementById('app').innerHTML = my.getEnv;
         // 判断是否运行在小程序环境里
         my && my.getEnv(function(res) {
             alert(JSON.stringify(res))
